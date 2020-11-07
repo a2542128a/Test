@@ -6,10 +6,15 @@ pipeline {
 
   }
   stages {
-    stage('') {
+    stage('error') {
       steps {
         svn 'svn://192.168.1.250/fgame/trunk/client/FGameNew'
-        bat(script: 'LuaScriptToLuaBytes.bat', encoding: 'UTF-8')
+      }
+    }
+
+    stage('LuaBytes') {
+      steps {
+        bat(script: 'LuaScriptToLuaBytes', encoding: 'UTF-8', returnStatus: true)
       }
     }
 
