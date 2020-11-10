@@ -9,6 +9,7 @@ pipeline {
     stage('LuaBytes') {
       steps {
         bat(script: 'LuaScriptToLuaBytes', encoding: 'UTF-8', returnStatus: true)
+        bat 'svn up'
       }
     }
 
